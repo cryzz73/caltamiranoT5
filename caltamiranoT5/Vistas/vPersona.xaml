@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="caltamiranoT5.Vistas.vPersona"
+             Title="vPersona">
+    <Frame BorderColor="Blue" CornerRadius="5" Padding="5">
+    <ScrollView>
+        <VerticalStackLayout>
+
+                <Image 
+                    Source="descarga.png" 
+                    WidthRequest="200" 
+                    HeightRequest="100" 
+                    HorizontalOptions="Start" 
+                    />
+
+                <!--  <Image -->
+                <!--    Source="raccoonrave.gif"  -->
+                <!--    HorizontalOptions="End"  -->
+                <!--   WidthRequest="100"  -->
+                <!--  HeightRequest="100"  -->
+                <!--  />               -->
+                    
+                    <Label
+                        Text=" Tarea semana 5: Bases de datos locales "
+                        FontSize="15"
+                        Margin="0,0,0,20" 
+                    />
+                    
+                <Label
+                    Text=" Cristian Altamirano Q"
+                    FontSize="15"
+                    Margin="0,0,0,20" 
+                    />
+                    
+                <Label
+                Text=" INGRESE UN NOMBRE"
+                FontSize="14"
+                    Margin="0,0,0,20" 
+                />
+
+            <Entry x:Name=" txtPersona"
+                   Placeholder="Ingrese un Nombre"/>
+            
+                <Grid>
+                    <Grid.RowDefinitions>
+
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+
+
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+
+                    </Grid.ColumnDefinitions>
+
+                    <Button x:Name="btnAgregar"
+                        Text="Agregar Persona"
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Clicked="btnAgregar_Clicked"
+                        />
+
+                    <Label x:Name="lblStatus"
+                       Grid.Row="1"
+                       Grid.Column="0"
+                       TextColor="ForestGreen"/>
+
+                    <Button 
+                    x:Name="btnObtener"
+                    Text="Listar Persona"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Clicked="btnObtener_Clicked"
+                    />
+
+                    <Button 
+                    x:Name="btnEditar"
+                    Text="Editar"
+                    Grid.Row="0"
+                    Grid.Column="2"
+                    Clicked="btnEditar_Clicked"
+                    IsEnabled="true"
+                    />
+
+                    <Button 
+                    x:Name="btnEliminar"
+                    Text="Eliminar"
+                    Grid.Row="0"
+                    Grid.Column="3"
+                    Clicked="btnEliminar_Clicked"
+                    IsEnabled="True"
+                    />
+
+                </Grid>
+           
+
+            <Grid>
+                <CollectionView x:Name="Listapersona"
+                                Grid.Row="3"
+                                Grid.Column="0"
+                                SelectionMode="Single"
+                                SelectionChanged="Listapersona_SelectionChanged">
+
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{Binding Id}" Grid.Column="0"/>
+                                <Label Text=" " Grid.Column="0" Margin="15,9"/>
+                                <Label Text="{Binding Name}" Grid.Column="4"/>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                    <CollectionView.Footer>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                        </Grid>
+                    </CollectionView.Footer>
+                </CollectionView>
+
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
+    </Frame>
+</ContentPage>
